@@ -198,7 +198,11 @@ func run() {
 			log.Printf("range[%q, %q]\n", kv[0], kv[len(kv)-1])
 		}
 		for k, v := range kv {
-			fmt.Printf("%q %v\n", v, k) // wow, the k is the value, and the v is the key
+			if *q {
+				fmt.Printf("%q \"%d\"\n", v, k)
+			} else {
+				fmt.Printf("%q %v\n", v, k) // wow, the k is the value, and the v is the key
+			}
 		}
 	} else {
 		if *vf {
